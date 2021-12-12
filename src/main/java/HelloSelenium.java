@@ -16,10 +16,11 @@ public class HelloSelenium {
 		
 		// - Page Connexion : 
 		// ---------------------------------------------------------------------- //
+		
 		driver.get("https://www.tunisianet.com.tn/connexion?back=my-account");
 		
-		String EMAIL = "mrabetchouaib@gmail.com";
-		String PASSWORD = "ubm.pL97szW4N5D";
+		String EMAIL = "******************";
+		String PASSWORD = "***************";
 		String PRODUCT_NAME ="PC portable MacBook M1 13.3";
 		
 		WebElement email = driver.findElement(By.name("email"));
@@ -31,23 +32,27 @@ public class HelloSelenium {
 		email.sendKeys(EMAIL);
 		password.sendKeys(PASSWORD);
 		
-		button.click(); // this will redirect to "mon-compte" Page :
+		// this will redirect to "mon-compte" Page :
+		button.click(); 
 		
-		// ---------------------------------------------------------------------- //
 		Thread.sleep(2500);		
-		
+
+		// ---------------------------------------------------------------------- //		
 		// - Page mon-compte : 
+		
         WebElement inputSearch = driver.findElement(By.className("search_query"));
         inputSearch.sendKeys(PRODUCT_NAME);
 
 		Thread.sleep(2500);
 		
         WebElement buttonSearch = driver.findElement(By.cssSelector("#sp-btn-search > button"));
-        buttonSearch.click(); // this will redirect to a page where you'll find list of products matching the product that you searched for
 
-		// ---------------------------------------------------------------------- //
+        // this will redirect to a page where you'll find list of products matching the product that you searched for :
+        buttonSearch.click(); 
         
 		Thread.sleep(2500);        
+
+		// ---------------------------------------------------------------------- //
         
         List<WebElement> products = driver.findElements(By.className("product-title"));
         products.get(0).click(); // Redirect to a page where you'll find details about the product :
@@ -71,12 +76,10 @@ public class HelloSelenium {
         WebElement buttonCommander2 = driver.findElement(By.cssSelector("a.btn.btn-primary"));
         buttonCommander2.click();
         
-		//Thread.sleep(25000); // Redirect to commande page :         
-
         Thread.sleep(2500);        
 
 		// ---------------------------------------------------------------------- //
-		// - Formulaire Adresses : 
+		// - Formulaire : 
 		
 		//WebElement societe = driver.findElement(By.name("company"));
 		//societe.sendKeys("société");
